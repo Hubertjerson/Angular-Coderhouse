@@ -1,0 +1,31 @@
+<div class="container mt-4">
+    <h1>Listado de Alumnos</h1>
+    <label for="searchProduct">Buscar Alumno</label>
+    <input type="text" class="form-control" id="searchProduct" (ngModel)="filterAlumno" name="filterAlumno">
+    <small *ngIf="!alumnos;">No tiene registros</small>
+    <br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Edad</th>
+                <th scope="col">Comision</th>
+                <th scope="col">Promedio</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let estudiantes of alumnos | filter: filterAlumno ">
+                <td>{{estudiantes.name}}</td>
+                <td>{{estudiantes.age}}</td>
+                <td>{{estudiantes.comision}}</td>
+                <td>{{estudiantes.promedio}}</td>
+                <td>
+                    <span *ngIf="estudiantes.promedio <= 5"
+                        [ngClass]="estudiantes.promedio < 5 ? 'text-danger' : 'text-danger'">Desaprobado</span>
+                    <span *ngIf="estudiantes.promedio >= 8" class="text-success">Aprobado</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
