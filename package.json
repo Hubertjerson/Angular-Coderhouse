@@ -1,7 +1,7 @@
 {
-  "name": "nueva-carpeta",
+  "name": "angular",
   "version": "1.0.0",
-  "description": "",
+  "description": "Este repositorio contiene desafios que se desarrollaron en toda la cursada de Angular 2022.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,10 +11,13 @@
     "url": "git+https://github.com/Hubertjerson/Angular-Coderhouse.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jerson Huaman",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Hubertjerson/Angular-Coderhouse/issues"
   },
-  "homepage": "https://github.com/Hubertjerson/Angular-Coderhouse#readme"
+  "homepage": "https://github.com/Hubertjerson/Angular-Coderhouse#readme",
+  "devDependencies": {
+    "@angular/cli": "^15.0.4"
+  }
 }

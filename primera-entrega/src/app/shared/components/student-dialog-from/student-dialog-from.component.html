@@ -1,0 +1,45 @@
+<h1 mat-dialog-title>Agregar estudiante</h1>
+<div mat-dialog-content>
+    <form class="flex flex-column" [formGroup]="studentForm" (ngSubmit)="AddStud()">
+
+        <div class="mb-2">
+
+            <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                <input matInput autocomplete="off" [formControl]="nameControl">
+                <small *ngIf="nameControl.errors?.['required']" class="text-danger">Este campo es requerido</small>
+            </mat-form-field>
+        </div>
+
+        <div class="mb-2">
+            <mat-form-field>
+                <mat-label>Apellido</mat-label>
+                <input matInput autocomplete="off" [formControl]="lastNameControl">
+                <small *ngIf="lastNameControl.errors?.['required']" class="text-danger">Este campo es requerido</small>
+            </mat-form-field>
+        </div>
+        <div class="mb-2">
+            <mat-form-field appearance="fill">
+                <mat-label>Sexo</mat-label>
+                <mat-select [formControl]="sexoControl">
+                    <mat-option *ngFor="let item of sexo" [value]="item">
+                        {{ item }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="mb-2">
+            <mat-form-field>
+                <mat-label>Nota</mat-label>
+                <input matInput autocomplete="off" [formControl]="noteControl" type="number">
+                <small *ngIf="noteControl.errors?.['required']" class="text-danger">Este campo es requerido</small>
+                <small *ngIf="noteControl.errors?.['min']" class="text-danger">La nota minima es 0 </small>
+                <small *ngIf="noteControl.errors?.['max']" class="text-danger">La nota maxima es 10</small>
+            </mat-form-field>
+        </div>
+        <div class="mb-2">
+            <button mat-raised-button style="margin-right:20px" (click)="close()">Cancelar</button>
+            <button type="submit" [disabled]="studentForm.invalid" mat-raised-button color="primary">Aceptar</button>
+        </div>
+    </form>
+</div>
