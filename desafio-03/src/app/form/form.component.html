@@ -1,0 +1,67 @@
+
+<div class="container">
+    <h2>Formulario</h2>
+    <form [formGroup]="formularioAlumno" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+                <label class="col-form-label" for="nombre">nombre: </label>
+                <input id="nombre" class="form-control" type="text" formControlName="nombre" requerid
+                    placeholder="Ingrese Nombre">
+            </div>
+
+            <div class="form-group col-md-6">
+                <label class="col-form-label" for="apellido">apellidos: </label>
+                <input id="apellido" class="form-control" type="text" formControlName="apellido"
+                    placeholder="Ingrese apellido" requerid>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label class="col-form-label" for="email">email: </label>
+                <input id="email" class="form-control" type="text" formControlName="email" placeholder="Ingrese email"
+                    requerid>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label class="col-form-label" for="password">password: </label>
+                <input id="password" class="form-control" type="text" formControlName="password"
+                    placeholder="Ingrese password" requerid>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label class="col-form-label" for="repeatpassword">repeatpassword: </label>
+                <input id="repeatpassword" class="form-control" type="text" formControlName="repeatpassword"
+                    placeholder="Ingrese repeatpassword" requerid>
+            </div>
+            <br>
+            <div class="col-sm-offset-2 col-sm-10">
+                <button class="btn btn-primary" type="submit" [disabled]="!formularioAlumno.valid">Submit</button>
+            </div>
+        </div>
+    </form>
+    <br>
+
+    <div>
+        {{formularioAlumno.valid? 'Gracias.': 'No completo el registros'}}
+    </div>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Email</th>
+                <th scope="col">contraseña</th>
+                <th scope="col">contraseñaRepetida</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{formularioAlumno.value.nombre}}</td>
+                <td>{{formularioAlumno.value.apellido}}</td>
+                <td>{{formularioAlumno.value.email}}</td>
+                <td>{{formularioAlumno.value.password}}</td>
+                <td>{{formularioAlumno.value.repeatpassword}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
