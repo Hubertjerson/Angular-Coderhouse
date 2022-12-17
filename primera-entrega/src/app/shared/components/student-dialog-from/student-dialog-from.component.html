@@ -7,7 +7,7 @@
             <mat-form-field>
                 <mat-label>Nombre</mat-label>
                 <input matInput autocomplete="off" [formControl]="nameControl">
-                <small *ngIf="nameControl.errors?.['required']" class="text-danger">Este campo es requerido</small>
+                <small *ngIf="nameControl.errors?.['required'] && (nameControl.dirty || nameControl.touched )" class="text-danger">Este campo es requerido</small>
             </mat-form-field>
         </div>
 
@@ -15,7 +15,7 @@
             <mat-form-field>
                 <mat-label>Apellido</mat-label>
                 <input matInput autocomplete="off" [formControl]="lastNameControl">
-                <small *ngIf="lastNameControl.errors?.['required']" class="text-danger">Este campo es requerido</small>
+                <small *ngIf="lastNameControl.errors?.['required'] && (lastNameControl.dirty || lastNameControl.touched )" class="text-danger">Este campo es requerido</small>
             </mat-form-field>
         </div>
         <div class="mb-2">
@@ -32,7 +32,7 @@
             <mat-form-field>
                 <mat-label>Nota</mat-label>
                 <input matInput autocomplete="off" [formControl]="noteControl" type="number">
-                <small *ngIf="noteControl.errors?.['required']" class="text-danger">Este campo es requerido</small>
+                <small *ngIf="noteControl.errors?.['required'] && (noteControl.dirty || noteControl.touched )" class="text-danger">Este campo es requerido</small>
                 <small *ngIf="noteControl.errors?.['min']" class="text-danger">La nota minima es 0 </small>
                 <small *ngIf="noteControl.errors?.['max']" class="text-danger">La nota maxima es 10</small>
             </mat-form-field>
