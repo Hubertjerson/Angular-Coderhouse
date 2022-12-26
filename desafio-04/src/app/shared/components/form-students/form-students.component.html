@@ -1,0 +1,12 @@
+
+<form [formGroup]="student">
+    <label for>nombre</label>
+    <input type="text" formControlName="name"/>
+    <label for>lastName</label>
+    <input type="text" formControlName="lastName"/>
+    <label for>email</label>
+    <input type="text" formControlName="email"/>
+    <label for>edad</label>
+    <input type="text" formControlName="age"/>
+    <button (click)="filter()">agregar</button>
+</form>
