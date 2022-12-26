@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { Student, StudentService } from '../../services/student.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { Student, StudentService } from '../../services/student.service';
   templateUrl: './list-student.component.html',
   styleUrls: ['./list-student.component.css']
 })
-export class ListStudentComponent {
+export class ListStudentComponent implements OnInit {
 
   arrStudent: Student[];
 
