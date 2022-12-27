@@ -1,0 +1,8 @@
+<div *ngIf="(cursos$ | async) as cursos">
+    <p>{{ cursos.length }} cursos!</p>
+    <ul>
+      <ng-template ngFor [ngForOf]="cursos$ | async" let-cursos>
+        <li>{{ cursos.name }}</li>
+      </ng-template>
+    </ul>
+  </div>

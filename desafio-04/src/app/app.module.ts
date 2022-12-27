@@ -10,6 +10,7 @@ import { MyMaterialModule } from './shared/modules/my-material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListStudentComponent } from './pages/list-student/list-student.component';
 import { ReportComponent } from './pages/report/report.component';
+import { CursosComponent } from './pages/cursos/cursos.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ReportComponent } from './pages/report/report.component';
     ToolbarComponent,
     FormStudentsComponent,
     ListStudentComponent,
-    ReportComponent
+    ReportComponent,
+    CursosComponent
   ],
   imports: [
     BrowserModule,
