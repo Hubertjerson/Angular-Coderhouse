@@ -10,16 +10,14 @@ import { StudentService, Student } from '../../services/student.service';
 export class ReportComponent implements OnInit {
   constructor(private studenstService: StudentService) { }
 
+  value$: any;
   ngOnInit(): void {
-    this.studenstService.filters$
+    this.value$=this.studenstService.filters$
       .pipe
       (map((res: any) => ({
           age: Number(res?.age) + 5 || null,
           orginalAge: Number(res?.age) || null
     }))
-    )
-      .subscribe((res => {
-        console.log('resporte',res);
-      }))
+    );
   }
 }
