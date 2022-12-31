@@ -1,1 +1,40 @@
-<p>from-alumnos works!</p>
+
+
+<h1 mat-dialog-title>Agregar estudiante</h1>
+<div class="container">
+    <form class="form" [formGroup]="studentForm" (ngSubmit)="addStudents()">
+
+        <div>
+            <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                <input matInput autocomplete="off" formControlName="name">
+            </mat-form-field>
+        </div>
+
+        <div class="mb-2">
+            <mat-form-field>
+                <mat-label>Apellido</mat-label>
+                <input matInput autocomplete="off" formControlName="lastName">
+            </mat-form-field>
+        </div>
+
+        <div class="mb-2">
+            <mat-form-field>
+                <mat-label>email</mat-label>
+                <input matInput autocomplete="off" formControlName="email">
+            </mat-form-field>
+        </div>
+
+        <div class="mb-2">
+            <mat-form-field>
+                <mat-label>curso</mat-label>
+                <input matInput autocomplete="off" formControlName="curso">
+            </mat-form-field>
+        </div>
+
+
+        <div class="mb-2">
+            <button type="submit" mat-raised-button color="primary">Aceptar</button>
+        </div>
+    </form>
+</div>

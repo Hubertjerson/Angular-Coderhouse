@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
 import { AlumnosModule } from './alumnos/alumnos.module';
+import { CursosModule } from './cursos/cursos.module';
 
 
 @NgModule({
@@ -19,7 +20,9 @@ import { AlumnosModule } from './alumnos/alumnos.module';
     BrowserAnimationsModule,
     SharedModule,
     HomeModule,
-    AlumnosModule
+    AlumnosModule,
+    CursosModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

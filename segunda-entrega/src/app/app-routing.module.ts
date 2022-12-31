@@ -5,12 +5,21 @@ import { NotFoundComponent } from './home/pages/not-found/not-found.component';
 
 const routes: Routes = [
   {
-    path:'',
+    path:'home',
     loadChildren:()=> import('./home/home.module').then(m=>m.HomeModule)
   },
   {
     path:'alumnos',
     loadChildren:()=> import('./alumnos/alumnos.module').then(m=>m.AlumnosModule)
+  },
+  {
+    path:'cursos',
+    loadChildren:()=> import('./cursos/cursos.module').then(m=>m.CursosModule)
+  },
+  {
+    path:'',
+    redirectTo:'home',
+    pathMatch:'full'
   },
   {
     path:'**',

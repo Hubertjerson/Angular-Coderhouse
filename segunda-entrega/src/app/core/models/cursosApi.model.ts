@@ -1,9 +1,8 @@
-export interface Course{
+export interface CursosApi{
     id:number,
     name:string,
     teacher:string,
     code:number,
-    inscription:boolean,
     initiation:Date,
-    finish:Date
+    finish:Date,
 }
