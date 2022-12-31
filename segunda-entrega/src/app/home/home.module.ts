@@ -1,24 +1,30 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
+
 import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { SharedModule } from '../shared/shared.module';
+import { HomeRoutingModule } from './home-routing.module';
+import { RouterModule } from '@angular/router';
 
 
 
 @NgModule({
   declarations: [
-    DashboardComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule,
+    HomeRoutingModule,
+    RouterModule
   ],
   exports:[
-    DashboardComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HomeRoutingModule
   ]
 })
 export class HomeModule { }
