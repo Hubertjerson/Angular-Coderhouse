@@ -1,1 +1,52 @@
-<p>from-cursos works!</p>
+
+
+<h1 mat-dialog-title>Agregar Curso</h1>
+<div class="container">
+    <form class="form" [formGroup]="coruseForm" (ngSubmit)="addCourse()">
+
+        <div>
+            <mat-form-field>
+                <mat-label>Curso</mat-label>
+                <input matInput autocomplete="off" formControlName="name">
+            </mat-form-field>
+        </div>
+
+        <div class="mb-2">
+            <mat-form-field>
+                <mat-label>Profesor</mat-label>
+                <input matInput autocomplete="off" formControlName="teacher">
+            </mat-form-field>
+        </div>
+
+        <div class="mb-2">
+            <mat-form-field>
+                <mat-label>Codigo</mat-label>
+                <input matInput autocomplete="off" formControlName="code">
+            </mat-form-field>
+        </div>
+
+        <div class="mb-2">
+            <mat-form-field>
+                <mat-label>Fecha de Inicio</mat-label>
+                <input matInput [matDatepicker]="initiation" formControlName="initiation">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="initiation"></mat-datepicker-toggle>
+                <mat-datepicker #initiation></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <div class="mb-2">
+            <mat-form-field>
+                <mat-label>Fin de Cursada</mat-label>
+                <input matInput [matDatepicker]="finish" formControlName="finish">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="finish"></mat-datepicker-toggle>
+                <mat-datepicker #finish></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <div class="mb-2">
+            <button type="submit" mat-raised-button color="primary">Aceptar</button>
+        </div>
+    </form>
+</div>

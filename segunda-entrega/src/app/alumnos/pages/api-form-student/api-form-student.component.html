@@ -1,1 +1,46 @@
-<p>api-form-student works!</p>
+
+
+<h1 mat-dialog-title>Agregar estudiante</h1>
+<div class="container">
+    <form class="form" [formGroup]="studentForm" (ngSubmit)="addStudents()">
+
+        <div>
+            <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                <input matInput autocomplete="off" formControlName="name">
+            </mat-form-field>
+        </div>
+
+        <div class="mb-2">
+            <mat-form-field>
+                <mat-label>Apellido</mat-label>
+                <input matInput autocomplete="off" formControlName="lastName">
+            </mat-form-field>
+        </div>
+
+        <div class="mb-2">
+            <mat-form-field>
+                <mat-label>email</mat-label>
+                <input matInput autocomplete="off" formControlName="email">
+            </mat-form-field>
+        </div>
+
+        <div class="mb-2">
+            <mat-form-field>
+                <mat-label>edad</mat-label>
+                <input matInput autocomplete="off" formControlName="edad">
+            </mat-form-field>
+        </div>
+
+        <div class="mb-2">
+            <mat-form-field>
+                <mat-label>sexo</mat-label>
+                <input matInput autocomplete="off" formControlName="sexo">
+            </mat-form-field>
+        </div>
+
+        <div class="mb-2">
+            <button type="submit" mat-raised-button color="primary">Aceptar</button>
+        </div>
+    </form>
+</div>

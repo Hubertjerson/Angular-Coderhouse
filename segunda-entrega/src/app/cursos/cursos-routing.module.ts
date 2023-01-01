@@ -10,7 +10,7 @@ const routes: Routes = [
     path:'',
     children:[
       {path:'',component:ListCursosComponent,},
-      {path:'formulario',component:FromCursosComponent},
+      {path:'agregar',component:FromCursosComponent},
     ]
   },
   {

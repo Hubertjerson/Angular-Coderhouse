@@ -24,4 +24,8 @@ export class StudentApiService {
       })
     })*/
   }
+
+  addApiStudent(student:StudentApi ){
+    this.http.post<StudentApi>(this.root_url,student)
+  }
 }

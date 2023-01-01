@@ -4,6 +4,7 @@ import { WrapperComponent } from './layout/wrapper/wrapper.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { RouterModule } from '@angular/router';
+import { NavbarComponent } from './layout/navbar/navbar.component';
 
 
 
@@ -11,16 +12,18 @@ import { RouterModule } from '@angular/router';
   declarations: [
     WrapperComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
   ],
   exports:[
     WrapperComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    NavbarComponent
   ]
 })
 export class SharedModule { }
