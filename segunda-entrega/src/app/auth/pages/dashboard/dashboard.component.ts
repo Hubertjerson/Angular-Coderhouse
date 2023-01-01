@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +11,10 @@ export class DashboardComponent implements OnInit{
 
   public objecto:any ={};
 
-  constructor(){}
+  constructor(
+    private authService:AuthService,
+    private router :Router
+  ){}
 
   ngOnInit(): void {
       let token = sessionStorage.getItem("token") as string;
@@ -24,5 +29,10 @@ export class DashboardComponent implements OnInit{
     }).join(''));
 
     return JSON.parse(jsonPayload);
+  }
+
+  logout(){
+    this.authService.clearToken();
+    this.router.navigate(['/home']);
   }
 }

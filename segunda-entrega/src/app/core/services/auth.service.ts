@@ -5,5 +5,12 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  constructor() { }
+  getAutenticationByToken(){
+    return sessionStorage.getItem("token");
+  }
+
+  clearToken(){
+    return sessionStorage.setItem("token",'');
+  }
+
 }

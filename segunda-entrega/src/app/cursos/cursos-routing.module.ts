@@ -4,20 +4,23 @@ import { FromCursosComponent } from './components/from-cursos/from-cursos.compon
 import { ListCursosComponent } from './components/list-cursos/list-cursos.component';
 import { CursosApiListComponent } from './pages/cursos-api-list/cursos-api-list.component';
 import { CursosApiFromComponent } from './pages/cursos-api-from/cursos-api-from.component';
+import { AuthGuard } from '../core/guard/auth.guard';
 
 const routes: Routes = [
   {
     path:'',
+    canActivate:[AuthGuard],
     children:[
-      {path:'',component:ListCursosComponent,},
-      {path:'agregar',component:FromCursosComponent},
+      {path:'',component:ListCursosComponent,canActivate:[AuthGuard],},
+      {path:'agregar',component:FromCursosComponent,canActivate:[AuthGuard],},
     ]
   },
   {
     path:'api',
+    canActivate:[AuthGuard],
     children:[
-      {path:'',component:CursosApiListComponent},
-      {path:'agregar',component:CursosApiFromComponent}
+      {path:'',component:CursosApiListComponent,canActivate:[AuthGuard],},
+      {path:'agregar',component:CursosApiFromComponent,canActivate:[AuthGuard],}
     ]
   }
 ];
