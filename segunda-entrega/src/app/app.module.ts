@@ -9,6 +9,7 @@ import { HomeModule } from './home/home.module';
 import { AlumnosModule } from './alumnos/alumnos.module';
 import { CursosModule } from './cursos/cursos.module';
 import { CursosPublicModule } from './public/cursos-public.module';
+import { MyMaterialModule } from './modules/my-material.module';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { CursosPublicModule } from './public/cursos-public.module';
     HomeModule,
     AlumnosModule,
     CursosModule,
-    CursosPublicModule
+    CursosPublicModule,
+    MyMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

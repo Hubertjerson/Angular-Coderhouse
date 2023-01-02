@@ -1,3 +1,12 @@
-<h1>Hola {{objecto.given_name}} soy la pagina principal luego de inicio de sesion</h1>
-<img [src]="objecto.picture" alt="" class="probando">
-<button (click)="logout()" type="button">cerrar sesion</button>
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+        <app-sidenav></app-sidenav>
+    </mat-drawer>
+    <mat-drawer-content>
+        <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
+        <app-pagewapper>
+            <router-outlet></router-outlet>
+        </app-pagewapper>
+    </mat-drawer-content>
+</mat-drawer-container>
+
