@@ -8,6 +8,7 @@ import { MyMaterialModule } from '../../../modules/my-material.module';
 import { ListAlumnosComponent } from './pages/list-alumnos/list-alumnos.component';
 
 
+
 @NgModule({
   declarations: [
     FormAlumnosComponent,
@@ -18,7 +19,6 @@ import { ListAlumnosComponent } from './pages/list-alumnos/list-alumnos.componen
     AlumnosRoutingModule,
     RouterModule,
     MyMaterialModule,
-
   ]
 })
 export class AlumnosModule { }

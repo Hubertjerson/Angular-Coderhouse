@@ -1,0 +1,5 @@
+@import url(../../../../pages/home/home.component.css);
+
+mat-label{
+    color: rgb(199, 197, 197);
+}

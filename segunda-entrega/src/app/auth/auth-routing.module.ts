@@ -41,9 +41,14 @@ const routes: Routes = [
     }
     ]
   },
+  //No Eliminar Si no PUM :V
   {
-    path:'NoSeUsa',
+    path:'bug2',
     loadChildren:()=> import('./components/Alumnos/alumnos.module').then(m=>m.AlumnosModule)
+  },
+  {
+    path:'Bug1',
+    loadChildren:()=> import('./components/Cursos/cursos.module').then(m=>m.CursosModule)
   }
 ];
 

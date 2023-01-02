@@ -1,0 +1,11 @@
+@import url(../../../../pages/home/home.component.css);
+
+mat-form-field{
+    padding: 0;
+    margin-top: 30px;
+}
+
+table{
+    width: 100%;
+    margin-right: 1000px;
+}
