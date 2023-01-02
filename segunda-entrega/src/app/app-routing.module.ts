@@ -15,13 +15,15 @@ const routes: Routes = [
   },
   {
     path:'alumnos',
-    canActivate:[AuthGuard],
     loadChildren:()=> import('./alumnos/alumnos.module').then(m=>m.AlumnosModule)
   },
   {
     path:'cursos',
-    canActivate:[AuthGuard],
     loadChildren:()=> import('./cursos/cursos.module').then(m=>m.CursosModule)
+  },
+  {
+    path:'public',
+    loadChildren:()=> import('./public/cursos-public.module').then(m=>m.CursosPublicModule)
   },
   {
     path:'',

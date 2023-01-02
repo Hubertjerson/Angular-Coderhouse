@@ -27,6 +27,7 @@ export class FromCursosComponent implements OnInit{
       code:new FormControl(),
       initiation:new FormControl(),
       finish:new FormControl(),
+      img:new FormControl(),
     })
   }
 
@@ -38,6 +39,7 @@ export class FromCursosComponent implements OnInit{
       code:this.coruseForm.value.code,
       initiation:this.coruseForm.value.initiation,
       finish:this.coruseForm.value.finish,
+      img:this.coruseForm.value.img
     }
     this.courseService.addCourse(curso);
     this.router.navigate(['cursos'])

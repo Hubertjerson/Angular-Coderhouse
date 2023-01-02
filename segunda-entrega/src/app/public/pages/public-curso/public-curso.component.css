@@ -1,0 +1,33 @@
+mat-grid-tile{
+  top: 50px;
+  padding-top: 60px;
+  color: white;
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-size: cover;
+}
+
+mat-card-actions{
+  justify-content: space-around;
+  padding-bottom: 9%;
+}
+
+mat-card-content{
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  color: white;
+}
+
+.gap{
+  background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("http://web.gencat.cat/web/.content/Imatge/noticies/2022/20220713_universitat.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}

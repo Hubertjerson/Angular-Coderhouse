@@ -1,7 +1,16 @@
-
-<app-navbar></app-navbar>
-<app-header></app-header>
-<app-wrapper>
-<router-outlet></router-outlet>
-</app-wrapper>
-<app-footer></app-footer>
+<div>
+    <app-navbar></app-navbar>
+    <app-header></app-header>
+    <app-wrapper>
+        <router-outlet>
+            <div class="hero-image">
+                <div class="hero-text">
+                    <h1 style="font-style: Georgia; color: #fff; font-size:50px;">APPStudiantes</h1>
+                    <p>CoderHouse-Angular</p>
+                    <button routerLink="/login">Iniciar Sesion</button>
+                </div>
+            </div>
+        </router-outlet>
+    </app-wrapper>
+    <app-footer></app-footer>
+</div>

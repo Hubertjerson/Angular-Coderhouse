@@ -1,0 +1,31 @@
+<app-header></app-header>
+<app-wrapper>
+  <div class="gap">
+    <mat-grid-list cols="4" rowHeight="2:3">
+      <div *ngIf="(courses$ | async) as courses">
+        <div class="" *ngFor="let student of courses">
+          <mat-grid-tile>
+            <mat-card class="example-card">
+              <mat-card-header>
+                <img mat-card-avatar class="example-header-image" src="{{student.img}}">
+                <mat-card-title>{{student.name}}</mat-card-title>
+                <mat-card-subtitle>Programacion</mat-card-subtitle>
+              </mat-card-header>
+              <img mat-card-image src="{{student.img}}">
+              <mat-card-content>
+                <mat-card-subtitle>Tutor: {{student.teacher}}</mat-card-subtitle>
+                <p>Inicio: {{student.initiation | date : "dd-MMM-yy"}}</p>
+                <p>Final: {{student.finish | date : "dd-MMM-yy"}}</p>
+              </mat-card-content>
+              <mat-card-actions>
+                <button mat-raised-button color="primary">Incribirse</button>
+              </mat-card-actions>
+            </mat-card>
+          </mat-grid-tile>
+        </div>
+      </div>
+    </mat-grid-list>
+  </div>
+  <router-outlet></router-outlet>
+</app-wrapper>
+<app-footer></app-footer>

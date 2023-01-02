@@ -9,17 +9,15 @@ import { AuthGuard } from '../core/guard/auth.guard';
 const routes: Routes = [
   {
     path:'',
-    canActivate:[AuthGuard],
     children:[
-      {path:'',component:ListCursosComponent,canActivate:[AuthGuard],},
+      {path:'',component:ListCursosComponent,},
       {path:'agregar',component:FromCursosComponent,canActivate:[AuthGuard],},
     ]
   },
   {
     path:'api',
-    canActivate:[AuthGuard],
     children:[
-      {path:'',component:CursosApiListComponent,canActivate:[AuthGuard],},
+      {path:'',component:CursosApiListComponent,},
       {path:'agregar',component:CursosApiFromComponent,canActivate:[AuthGuard],}
     ]
   }

@@ -1,4 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable, Subscription } from 'rxjs';
 import { Course } from 'src/app/core/models/cursos.model';
@@ -18,6 +19,8 @@ export class ListCursosComponent implements OnInit,OnDestroy {
   dataSource = new MatTableDataSource<Course>
   displayedColumns: string[] = ['id', 'name', 'teacher', 'code', 'initiation','finish',];
   
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
 constructor(
   private courseService:CursoService,
 ){}
@@ -27,6 +30,7 @@ constructor(
       this.courseSubscription=this.courses$.subscribe(cursos => {
         this.courses = cursos;
         this.dataSource.data = this.courses;
+        this.dataSource.paginator = this.paginator
       })
   }
   ngOnDestroy(): void {
@@ -36,5 +40,9 @@ constructor(
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+    
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 }

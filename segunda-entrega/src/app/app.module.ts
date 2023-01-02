@@ -8,6 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
 import { AlumnosModule } from './alumnos/alumnos.module';
 import { CursosModule } from './cursos/cursos.module';
+import { CursosPublicModule } from './public/cursos-public.module';
 
 
 @NgModule({
@@ -21,8 +22,8 @@ import { CursosModule } from './cursos/cursos.module';
     SharedModule,
     HomeModule,
     AlumnosModule,
-    CursosModule
-    
+    CursosModule,
+    CursosPublicModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,6 +5,8 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './layout/navbar/navbar.component';
+import { MyMaterialModule } from '../modules/my-material.module';
+
 
 
 
@@ -18,6 +20,7 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
   imports: [
     CommonModule,
     RouterModule,
+    MyMaterialModule
   ],
   exports:[
     WrapperComponent,
