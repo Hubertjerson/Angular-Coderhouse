@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { SharedComponentsModule } from './auth/shared/components/shared-components.module';
+import { PublicModule } from './public/shared/public.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { SharedComponentsModule } from './auth/shared/components/shared-componen
     AppRoutingModule,
     BrowserAnimationsModule,
     RouterModule,
-    SharedComponentsModule
+    SharedComponentsModule,
+    PublicModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -37,6 +37,7 @@
                             <mat-label>curso</mat-label>
                             <input matInput autocomplete="off" formControlName="curso">
                             <small *ngIf="studentForm.get('curso')?.errors?.['required'] && studentForm.get('curso')?.touched" class="text-danger">Este campo es requerido</small>
+                            <small *ngIf="studentForm.controls['curso'].hasError('required') && studentForm.controls['curso'].touched"></small>
                         </mat-form-field>
                     </div>
 

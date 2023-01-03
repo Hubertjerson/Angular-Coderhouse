@@ -4,8 +4,24 @@ import { AdminlayoutComponent } from './auth/shared/components/layouts/adminlayo
 
 import { AuthGuard } from './auth/shared/guard/auth.guard';
 import { AuthlayoutComponent } from './auth/shared/components/layouts/authlayout/authlayout.component';
+import { PublicLayoutComponent } from './public/shared/components/layout/public-layout/public-layout.component';
 
 const routes: Routes = [
+  {
+    path:'',
+    redirectTo:'App/home',
+    pathMatch:'full'
+  },
+  {
+    path:'',
+    component:PublicLayoutComponent,
+    children:[
+      {
+        path:'App',
+        loadChildren: () => import('./public/views/home/home.module').then(m => m.HomeModule)
+      }
+    ]
+  },
   {
     path:'',
     component:AuthlayoutComponent,
