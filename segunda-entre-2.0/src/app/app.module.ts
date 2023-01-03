@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { SharedComponentsModule } from './auth/shared/components/shared-components.module';
 import { PublicModule } from './public/shared/public.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { PublicModule } from './public/shared/public.module';
     BrowserAnimationsModule,
     RouterModule,
     SharedComponentsModule,
-    PublicModule
+    PublicModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

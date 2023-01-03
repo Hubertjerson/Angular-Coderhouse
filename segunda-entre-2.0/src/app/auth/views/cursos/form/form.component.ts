@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Curso } from 'src/app/auth/shared/models/Curso.model';
 import { CursoService } from 'src/app/auth/shared/services/curso.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-form',
@@ -53,7 +54,7 @@ export class FormComponent implements OnInit{
       img:this.coruseForm.value.img
     }
     this.courseService.addCourse(curso);
-    this.router.navigate(['cursos'])
+    this.router.navigate(['cursos/listado'])
   }
 
 }

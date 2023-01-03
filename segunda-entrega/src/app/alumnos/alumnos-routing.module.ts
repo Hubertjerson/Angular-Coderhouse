@@ -11,8 +11,8 @@ const routes: Routes =[
     path:'',
     canActivate:[AuthGuard],
     children:[
-      {path:'',component:ListAlumnosComponent,canActivate:[AuthGuard],},
-      {path:'agregar',component:FromAlumnosComponent,canActivate:[AuthGuard],},
+      {path:'',component:ApiListStudentComponent,canActivate:[AuthGuard],},
+      {path:'agregar', component:ApiFormStudentComponent,canActivate:[AuthGuard],}
     ]
   },
   {

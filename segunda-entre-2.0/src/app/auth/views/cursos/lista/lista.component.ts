@@ -34,7 +34,6 @@ export class ListaComponent implements OnInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    console.log(this.paginator)
     this.dataSource.paginator = this.paginator;
   }
 
@@ -50,7 +49,6 @@ export class ListaComponent implements OnInit, OnDestroy {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
   }
 
 }
