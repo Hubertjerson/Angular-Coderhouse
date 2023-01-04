@@ -1,10 +1,10 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Student } from 'src/app/auth/shared/models/Student.model';
 import { StudentService } from 'src/app/auth/shared/services/student.service';
-import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-form',
@@ -15,6 +15,7 @@ export class FormComponent implements OnInit {
 
 
   studentForm:FormGroup;
+
   
   constructor(
     private studentsService:StudentService,
@@ -48,7 +49,7 @@ export class FormComponent implements OnInit {
   }
 
   addStudents(){
-    const courses : Student ={
+    const student : Student ={
       id:Math.round(Math.random()*1000),
       name:this.studentForm.value.name,
       LastName:this.studentForm.value.LastName,
@@ -56,9 +57,8 @@ export class FormComponent implements OnInit {
       edad:this.studentForm.value.edad,
       sexo:this.studentForm.value.sexo
 
-    }
-    this.studentsService.addStudent(courses);
-    this.router.navigate(['/alumnos/lista'])
+    };
+    this.studentsService.addStudent(student).subscribe(()=>this.router.navigate(['/alumnos/lista']));
 
     this._snackBar.open('El Alumno se agregado con exito','',{
       duration:1500,

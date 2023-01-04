@@ -4,6 +4,7 @@ import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { Observable, Subscription } from 'rxjs';
 import { Student } from 'src/app/auth/shared/models/Student.model';
 import { StudentService } from 'src/app/auth/shared/services/student.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista',
@@ -17,13 +18,17 @@ export class ListaComponent implements OnInit, OnDestroy{
   studentsApiSubscription:Subscription;
 
   dataSource = new MatTableDataSource<Student>
+  displayedColumns: string[] = ['id', 'name', 'LastName', 'edad', 'sexo','action'];
 
 
   constructor(
-    private studentSerice:StudentService
+    private studentSerice:StudentService,
+    private router :Router
   ){}
 
   @ViewChild(MatTable) table: MatTable<Student>;
+  @Output() OcultarTabla = new EventEmitter<any>();
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit(): void {
     this.studentsApi$ = this.studentSerice.getStudenList();
@@ -39,11 +44,6 @@ export class ListaComponent implements OnInit, OnDestroy{
     this.dataSource.paginator = this.paginator;
   }
 
-  @Output() OcultarTabla = new EventEmitter<any>();
-
-  displayedColumns: string[] = ['id', 'name', 'LastName', 'edad', 'sexo',];
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-
   ngOnDestroy(): void {
     this.studentsApiSubscription.unsubscribe()
   }
@@ -51,6 +51,10 @@ export class ListaComponent implements OnInit, OnDestroy{
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  deleteStudent(id:number){
+    this.studentSerice.deleteStudent(id).subscribe(()=>this.router.navigate(['/alumnos/lista']));
   }
 }
 
