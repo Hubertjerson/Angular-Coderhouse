@@ -5,6 +5,7 @@ import { AdminlayoutComponent } from './auth/shared/components/layouts/adminlayo
 import { AuthGuard } from './auth/shared/guard/auth.guard';
 import { AuthlayoutComponent } from './auth/shared/components/layouts/authlayout/authlayout.component';
 import { PublicLayoutComponent } from './public/shared/components/layout/public-layout/public-layout.component';
+import { GuardloadingGuard } from './auth/shared/guard/guardloading.guard';
 
 const routes: Routes = [
   {
@@ -36,6 +37,7 @@ const routes: Routes = [
     path:'',
     component:AdminlayoutComponent,
     /*canActivate:[AuthGuard],*/
+    /*canLoad:[GuardloadingGuard],*/
     children:[
       {
         path:'dashboard',
