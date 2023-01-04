@@ -466,7 +466,7 @@ button {
 }
 
 .e-nav__link:after {
-  content: "Home Page";
+  content: "Dashboard";
 }
 
 .e-nav__link:hover:before {

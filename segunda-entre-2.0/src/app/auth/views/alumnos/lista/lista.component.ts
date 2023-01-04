@@ -54,7 +54,7 @@ export class ListaComponent implements OnInit, OnDestroy{
   }
 
   deleteStudent(id:number){
-    this.studentSerice.deleteStudent(id).subscribe(()=>this.router.navigate(['/alumnos/lista']));
+    this.studentSerice.deleteStudent(id).subscribe((res)=>this.router.navigate(['/alumnos/lista']));
   }
 }
 
