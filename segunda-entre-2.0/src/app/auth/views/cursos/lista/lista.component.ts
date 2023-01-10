@@ -54,8 +54,6 @@ export class ListaComponent implements OnInit, OnDestroy {
   onDelete(elemento:Curso){
     let indexOfAlumnos=this.dataSource.data.findIndex((al:any) => al.id===elemento.id);
     this.dataSource.data.splice(indexOfAlumnos,1);
-    this.courseService.getListCourse().subscribe(()=>this.router.navigate(['cursos/listado']))
-    this.table.renderRows();
   }
 
 }
