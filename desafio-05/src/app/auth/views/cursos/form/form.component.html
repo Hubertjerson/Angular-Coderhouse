@@ -1,1 +1,50 @@
-<p>form works!</p>
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2" mat-dialog-title>Agregar Cursos</div>
+    <div class="page__content shadow p-3 position-relative">
+        <div class="page__content-data position-absolute text-center">
+            <!---CONTENIDO-->
+
+            <div class="container">
+                <form class="form" [formGroup]="formCursos" (ngSubmit)="onSubmit()">
+
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Curso</mat-label>
+                            <input matInput autocomplete="off" formControlName="name">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="mb-2">
+                        <mat-form-field>
+                            <mat-label>Profesor</mat-label>
+                            <input matInput autocomplete="off" formControlName="profesor">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="mb-2">
+                        <mat-form-field>
+                            <mat-label>Codigo</mat-label>
+                            <input matInput autocomplete="off" formControlName="codigo">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="mb-2">
+                        <mat-form-field>
+                            <mat-label>horario</mat-label>
+                            <input matInput [matDatepicker]="horario" formControlName="horario">
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matSuffix [for]="horario"></mat-datepicker-toggle>
+                            <mat-datepicker #horario></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+
+
+                    <div class="mb-2">
+                        <button type="submit"  mat-raised-button color="primary">Aceptar</button>
+                    </div>
+                </form>
+            </div>
+            <!--FIN DEL CONTENIDO-->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+@import url('../../dashboard/dashboard/dashboard.component.css');
+
+mat-label{
+    color: rgb(199, 197, 197);
+}

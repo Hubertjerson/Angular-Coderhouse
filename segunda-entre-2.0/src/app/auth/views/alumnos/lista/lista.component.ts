@@ -18,7 +18,7 @@ export class ListaComponent implements OnInit, OnDestroy{
   studentsApiSubscription:Subscription;
 
   dataSource = new MatTableDataSource<Student>
-  displayedColumns: string[] = ['id', 'name', 'LastName', 'edad', 'sexo','action'];
+  displayedColumns: string[] = ['id', 'name', 'LastName', 'edad', 'sexo','eliminar'];
 
 
   constructor(
@@ -54,7 +54,9 @@ export class ListaComponent implements OnInit, OnDestroy{
   }
 
   deleteStudent(id:number){
-    this.studentSerice.deleteStudent(id).subscribe((res)=>this.router.navigate(['/alumnos/lista']));
+    this.studentSerice.deleteStudent(id);
+    this.dataSource = new MatTableDataSource<Student>(this.studentsApi);
+    this.studentsApi = this.studentsApi.filter(el => el.id !== id);
   }
 }
 

@@ -1,21 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormComponent } from './form/form.component';
-import { ListaComponent } from './lista/lista.component';
+import { AlumnosComponent } from './alumnos.component';
 
-const routes: Routes = [  {
+
+const routes: Routes = [
+  {
   path:'',
-  children:[
-    {
-      path:'lista',
-      component:ListaComponent
-    },
-    {
-      path:'form',
-      component:FormComponent
-    }
-  ]
-}];
+  component:AlumnosComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

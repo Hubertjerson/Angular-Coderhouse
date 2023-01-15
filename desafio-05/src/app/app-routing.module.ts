@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminlayoutComponent } from './auth/shared/components/layouts/adminlayout/adminlayout.component';
 import { AuthlayoutComponent } from './auth/shared/components/layouts/authlayout/authlayout.component';
+import { GuardGuard } from './auth/shared/guard/guard.guard';
 import { PublicLayoutComponent } from './public/shared/components/layout/public-layout/public-layout.component';
 
 const routes: Routes = [  {
@@ -34,6 +35,7 @@ const routes: Routes = [  {
   component:AdminlayoutComponent,
   /*canActivate:[AuthGuard],*/
   /*canLoad:[GuardloadingGuard],*/
+  canActivate:[GuardGuard],
   children:[
     {
       path:'dashboard',

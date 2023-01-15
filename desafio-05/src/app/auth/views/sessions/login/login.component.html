@@ -2,21 +2,23 @@
     <div class="login">
         <img src="./assets/img/user.png" alt="logo">
         <h1 class="h3 mb-3 fw-normal">Login</h1>
-        <mat-form-field class="ancho" appearance="fill">
-            <mat-label>Usuario</mat-label>
-            <input matInput>
-        </mat-form-field>
-        <mat-form-field class="ancho" appearance="fill">
-            <mat-label>Contraseña</mat-label>
-            <input matInput>
-        </mat-form-field>
-        <br>
-        <button class="ancho" mat-raised-button mat-button color="primary">Iniciar Sesion</button>
-        <br>
-        <br>
+        <form (ngSubmit)="onLogin()" name="loginForm" [formGroup]="loginForm">
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Usuario</mat-label>
+                <input formControlName="username" matInput placeholder="Enter your username" required />
+            </mat-form-field>
+            <mat-form-field class="ancho" appearance="fill">
+                <mat-label>Contraseña</mat-label>
+                <input formControlName="password" matInput placeholder="Enter your password" required />
+            </mat-form-field>
+            <br>
+            <button class="ancho" mat-raised-button mat-button color="primary">Iniciar Sesion</button>
+            <br>
+            <br>
         <mat-label>Google Sesion</mat-label>
         <div id="buttonDiv"></div>
         <br>
+    </form>
         <button class="ancho" routerLink="/App/home" mat-raised-button mat-button color="danger">Volver</button>
     </div>
 </div>

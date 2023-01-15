@@ -1,0 +1,9 @@
+<div class="ver">
+    <app-form *ngIf="mostrarform"
+    (VerForm)="onFormSend($event)"
+    ></app-form>
+
+    <app-lista *ngIf="!mostrarform"
+    (OcultarTabla)="onTableSend($event)"
+    ></app-lista>
+</div>

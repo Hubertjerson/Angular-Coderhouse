@@ -1,5 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/auth/shared/services/login.service';
 declare var google:any;
 @Component({
   selector: 'app-login',
@@ -7,9 +9,12 @@ declare var google:any;
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit, AfterViewInit{
-
+  hide: boolean = false;
+  loginForm: FormGroup
   constructor(
-    private router: Router
+    private router: Router,
+    private loginService:LoginService,
+    private fb:FormBuilder
   ){}
 
   ngAfterViewInit(): void {
@@ -24,8 +29,6 @@ export class LoginComponent implements OnInit, AfterViewInit{
     google.accounts.id.prompt();
   }
 
-  ngOnInit(): void {
-  }
 
   handleCredentialResponse(response:any){
     console.log(response)
@@ -33,7 +36,19 @@ export class LoginComponent implements OnInit, AfterViewInit{
     if(response.credential){
       console.log(response.credential);
       sessionStorage.setItem("token", response.credential);
-      document.location.href = "/dashboard/home";
+      document.location.href = "/dashboard";
     }
+  }
+
+  ngOnInit(): void {
+    this.loginForm= this.fb.group({
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    })
+  }
+
+  onLogin() {
+    this.loginService.isLogin=true;
+    this.router.navigate(['dashboard']);
   }
 }
