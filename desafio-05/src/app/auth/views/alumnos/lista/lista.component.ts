@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { tap } from 'rxjs';
 import { Student } from 'src/app/auth/shared/models/Student.model';
 import { StudentService } from 'src/app/auth/shared/services/student.service';
 
@@ -21,22 +22,21 @@ export class ListaComponent implements OnInit, AfterViewInit{
     private studentService:StudentService
     ){}
 
+  getStudentList$ = this.studentService.getStudenList().pipe(
+    tap((val)=> {
+      this.student = val;
+      this.dataSource.data = this.student;
+    })
+  )
+
   ngAfterViewInit(): void {
       this.dataSource.paginator = this.paginator;
   }
 
   getStudent(){
-    this.studentService.getStudenList().subscribe(
-      (val) => {
-        this.student = val;
-        this.dataSource.data = this.student;
-      }
-    )
+    this.getStudentList$.subscribe();
   }
 
-  deleteStudent(elemento:Student){
-    this.studentService.deleteStudent(elemento).subscribe();
-  }
 
   ngOnInit(): void {
       this.getStudent();
@@ -49,9 +49,9 @@ export class ListaComponent implements OnInit, AfterViewInit{
   }
 
   onDelete(elemento:Student){
-    let indexLocal = this.dataSource.data.findIndex((al:any) => al.id === elemento.id);
-    this.dataSource.data.splice(indexLocal,1);
-    this.deleteStudent(elemento);
+    this.studentService.deleteStudent(elemento).subscribe(()=>{
+      this.getStudent();
+    });
   }
   OnAdd(){
     this.OcultarTabla.emit(true);
