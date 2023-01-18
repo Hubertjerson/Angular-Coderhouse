@@ -2,10 +2,27 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminlayoutComponent } from './auth/shared/components/layouts/adminlayout/adminlayout.component';
 import { AuthlayoutComponent } from './auth/shared/components/layouts/authlayout/authlayout.component';
+import { PublicLayoutComponent } from './public/shared/components/layout/public-layout/public-layout.component';
 
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'App/home',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
+    component: PublicLayoutComponent,
+    children: [
+      {
+        path: 'App',
+        loadChildren: () => import('./public/views/home/home.module').then(m => m.HomeModule)
+      }
+    ]
+  },
+  {
+    path: '',
+    component: AuthlayoutComponent,
     children: [
       {
         path: 'sessions',
@@ -33,6 +50,10 @@ const routes: Routes = [
       }
     ]
   },
+  {
+    path: '**',
+    redirectTo: 'sessions/404'
+  }
 ];
 
 @NgModule({

@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
+import { map, Observable, Subscription } from 'rxjs';
 import { Student } from 'src/app/auth/shared/models/Student.model';
 import { StudentService } from 'src/app/auth/shared/services/student.service';
 import Swal from 'sweetalert2';
@@ -39,6 +39,16 @@ export class ListaComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
       this.alumnosSubcription.unsubscribe()
   }
+
+  applyFilter(event: Event) {
+    const valorObtenido = (event.target as HTMLInputElement).value;
+    this.alumnos$ = this.alumnoService.ObtenerAlumnos().pipe(
+      map(c => c.filter(
+        alumno => alumno.name.toLocaleLowerCase().includes(valorObtenido.toLocaleLowerCase())
+      ))
+    );
+  }
+
 
   eliminarAlumno(elemento:Student){
     this.alumnoService.eliminarAlumno(elemento).subscribe(()=>{

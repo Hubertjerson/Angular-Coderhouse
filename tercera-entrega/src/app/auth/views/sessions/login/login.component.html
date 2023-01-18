@@ -1,25 +1,24 @@
-<main>
-    <mat-card class="col-4">
-        <mat-card-header class="mb-3">
-            <mat-card-title>Iniciar sesión</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <form class="flex flex-column" [formGroup]="form">
-                <mat-form-field appearance="outline">
-                    <mat-label>Outline form field</mat-label>
-                    <input formControlName="email" type="email" matInput placeholder="Placeholder">
-                    <mat-icon matSuffix>email</mat-icon>
-                </mat-form-field>
-                <mat-form-field appearance="outline">
-                    <mat-label>Outline form field</mat-label>
-                    <input formControlName="password" type="password" matInput placeholder="Placeholder">
-                    <mat-icon matSuffix>key</mat-icon>
-                </mat-form-field>
-            </form>
-        </mat-card-content>
-        <mat-card-actions class="flex justify-content-end">
-            <button [disabled]="loading" mat-flat-button color="primary" (click)="login()">{{ loading ? 'Iniciando
-                sesión' : 'Ingresar' }}</button>
-        </mat-card-actions>
-    </mat-card>
-</main>
+<div class="body">
+    <div class="login">
+        <img src="./assets/img/user.png" alt="logo">
+        <h1 class="h3 mb-3 fw-normal">Login</h1>
+        <form class="flex flex-column" [formGroup]="form">
+            <mat-form-field appearance="fill" class="ancho">
+                <mat-label>Outline form field</mat-label>
+                <input formControlName="email" type="email" matInput placeholder="Placeholder">
+                <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="ancho">
+                <mat-label>Outline form field</mat-label>
+                <input formControlName="password" type="password" matInput placeholder="Placeholder">
+                <mat-icon matSuffix>key</mat-icon>
+            </mat-form-field>
+        </form>
+        <br>
+        <button [disabled]="loading" mat-flat-button color="primary" (click)="login()">{{ loading ? 'Iniciando
+            sesión' : 'Ingresar' }}</button>
+            <br>
+            <br>
+        <button class="ancho" routerLink="/App/home" mat-raised-button mat-button color="danger">Volver</button>
+    </div>
+</div>

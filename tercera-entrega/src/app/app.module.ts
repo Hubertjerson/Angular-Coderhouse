@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { SharedComponentsModule } from './auth/shared/components/shared-components.module';
 import { StoreModule } from '@ngrx/store';
+import { PublicModule } from './public/shared/public.module';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { StoreModule } from '@ngrx/store';
     AppRoutingModule,
     BrowserAnimationsModule,
     RouterModule,
+    PublicModule,
     SharedComponentsModule,
 
     HttpClientModule,

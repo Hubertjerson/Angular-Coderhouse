@@ -1,47 +1,56 @@
-<div class="container">
-    <form class="form" [formGroup]="cursosFormulario" (ngSubmit)="guardarCurso()">
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2" mat-dialog-title>Agregar Cursos</div>
+    <div class="page__content shadow p-3 position-relative">
+        <div class="page__content-data position-absolute text-center">
 
-        <div>
-            <mat-form-field>
-                <mat-label>Curso</mat-label>
-                <input matInput autocomplete="off" formControlName="name">
-            </mat-form-field>
+            <div class="container">
+                <form class="form" [formGroup]="cursosFormulario" (ngSubmit)="guardarCurso()">
+
+                    <div>
+                        <mat-form-field>
+                            <mat-label>Curso</mat-label>
+                            <input matInput autocomplete="off" formControlName="name">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="mb-2">
+                        <mat-form-field>
+                            <mat-label>Profesor</mat-label>
+                            <input matInput autocomplete="off" formControlName="teacher">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="mb-2">
+                        <mat-form-field>
+                            <mat-label>Codigo</mat-label>
+                            <input matInput autocomplete="off" formControlName="code">
+                        </mat-form-field>
+                    </div>
+
+
+                    <div class="mb-2">
+                        <mat-form-field>
+                            <mat-label>Inicio de Cursada</mat-label>
+                            <input matInput [matDatepicker]="initiation" formControlName="initiation">
+                            <mat-hint>MM/DD/YYYY</mat-hint>
+                            <mat-datepicker-toggle matSuffix [for]="initiation"></mat-datepicker-toggle>
+                            <mat-datepicker #initiation></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="mb-2">
+                        <mat-form-field>
+                            <mat-label>Imagen(URL)</mat-label>
+                            <input matInput autocomplete="off" formControlName="img">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="mb-2">
+                        <button type="submit" [disabled]="cursosFormulario.invalid" mat-raised-button
+                            color="primary">Aceptar</button>
+                    </div>
+                </form>
+            </div>
         </div>
-
-        <div class="mb-2">
-            <mat-form-field>
-                <mat-label>Profesor</mat-label>
-                <input matInput autocomplete="off" formControlName="teacher">
-            </mat-form-field>
-        </div>
-
-        <div class="mb-2">
-            <mat-form-field>
-                <mat-label>Codigo</mat-label>
-                <input matInput autocomplete="off" formControlName="code">
-            </mat-form-field>
-        </div>
-
-
-        <div class="mb-2">
-            <mat-form-field>
-                <mat-label>Inicio de Cursada</mat-label>
-                <input matInput [matDatepicker]="initiation" formControlName="initiation">
-                <mat-hint>MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matSuffix [for]="initiation"></mat-datepicker-toggle>
-                <mat-datepicker #initiation></mat-datepicker>
-            </mat-form-field>
-        </div>
-
-        <div class="mb-2">
-            <mat-form-field>
-                <mat-label>Imagen(URL)</mat-label>
-                <input matInput autocomplete="off" formControlName="img">
-            </mat-form-field>
-        </div>
-
-        <div class="mb-2">
-            <button type="submit" [disabled]="cursosFormulario.invalid" mat-raised-button color="primary">Aceptar</button>
-        </div>
-    </form>
+    </div>
 </div>

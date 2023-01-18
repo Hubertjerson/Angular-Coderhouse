@@ -1,53 +1,80 @@
-<div class="container">
-    <form class="form" [formGroup]="alumnosFormulario" (ngSubmit)="guardarAlumno()">
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Agregar Alumno</div>
+    <div class="page__content shadow p-3 position-relative">
+        <div class="page__content-data position-absolute text-center">
+            <!--CONTENIDO-->
+            <div class="container">
+                <div class="container">
+                    <form class="form" [formGroup]="alumnosFormulario" (ngSubmit)="guardarAlumno()">
 
-        <div>
-            <mat-form-field>
-                <mat-label>Nombe</mat-label>
-                <input matInput autocomplete="off" formControlName="name">
-                <small *ngIf="alumnosFormulario.get('name')?.errors?.['required'] && alumnosFormulario.get('name')?.touched" class="text-danger">Este campo es requerido</small>
-                <small *ngIf="alumnosFormulario.get('name')?.errors?.['minLength'] && alumnosFormulario.get('name')?.touched" class="text-danger">Este campo es requerido</small>
-            </mat-form-field>
+                        <div>
+                            <mat-form-field>
+                                <mat-label>Nombe</mat-label>
+                                <input matInput autocomplete="off" formControlName="name">
+                                <small
+                                    *ngIf="alumnosFormulario.get('name')?.errors?.['required'] && alumnosFormulario.get('name')?.touched"
+                                    class="text-danger">Este campo es requerido</small>
+                                <small
+                                    *ngIf="alumnosFormulario.get('name')?.errors?.['minLength'] && alumnosFormulario.get('name')?.touched"
+                                    class="text-danger">Este campo es requerido</small>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="mb-2">
+                            <mat-form-field>
+                                <mat-label>Apellido</mat-label>
+                                <input matInput autocomplete="off" formControlName="LastName">
+                                <small
+                                    *ngIf="alumnosFormulario.get('LastName')?.errors?.['required'] && alumnosFormulario.get('lastName')?.touched"
+                                    class="text-danger">Este campo es requerido</small>
+                                <small
+                                    *ngIf="alumnosFormulario.get('LastName')?.errors?.['minLength'] && alumnosFormulario.get('lastName')?.touched"
+                                    class="text-danger">Mas de 5 palabras</small>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="mb-2">
+                            <mat-form-field>
+                                <mat-label>email</mat-label>
+                                <input matInput autocomplete="off" formControlName="email">
+                                <small
+                                    *ngIf="alumnosFormulario.get('email')?.errors?.['required'] && alumnosFormulario.get('email')?.touched"
+                                    class="text-danger">Este campo es requerido</small>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="mb-2">
+                            <mat-form-field>
+                                <mat-label>edad</mat-label>
+                                <input matInput autocomplete="off" formControlName="edad">
+                                <small
+                                    *ngIf="alumnosFormulario.get('edad')?.errors?.['required'] && alumnosFormulario.get('edad')?.touched"
+                                    class="text-danger">Este campo es requerido</small>
+                                <small
+                                    *ngIf="alumnosFormulario.controls['edad'].hasError('required') && alumnosFormulario.controls['edad'].touched"></small>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="mb-2">
+                            <mat-form-field>
+                                <mat-label>sexo</mat-label>
+                                <input matInput autocomplete="off" formControlName="sexo">
+                                <small
+                                    *ngIf="alumnosFormulario.get('sexo')?.errors?.['required'] && alumnosFormulario.get('sexo')?.touched"
+                                    class="text-danger">Este campo es requerido</small>
+                                <small
+                                    *ngIf="alumnosFormulario.controls['sexo'].hasError('required') && alumnosFormulario.controls['sexo'].touched"></small>
+                            </mat-form-field>
+                        </div>
+
+
+                        <div class="mb-2">
+                            <button type="submit" [disabled]="alumnosFormulario.invalid" mat-raised-button
+                                color="primary">Aceptar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <div class="mb-2">
-            <mat-form-field>
-                <mat-label>Apellido</mat-label>
-                <input matInput autocomplete="off" formControlName="LastName">
-                <small *ngIf="alumnosFormulario.get('LastName')?.errors?.['required'] && alumnosFormulario.get('lastName')?.touched" class="text-danger">Este campo es requerido</small>
-                <small *ngIf="alumnosFormulario.get('LastName')?.errors?.['minLength'] && alumnosFormulario.get('lastName')?.touched" class="text-danger">Mas de 5 palabras</small>
-            </mat-form-field>
-        </div>
-
-        <div class="mb-2">
-            <mat-form-field>
-                <mat-label>email</mat-label>
-                <input matInput autocomplete="off" formControlName="email">
-                <small *ngIf="alumnosFormulario.get('email')?.errors?.['required'] && alumnosFormulario.get('email')?.touched" class="text-danger">Este campo es requerido</small>
-            </mat-form-field>
-        </div>
-
-        <div class="mb-2">
-            <mat-form-field>
-                <mat-label>edad</mat-label>
-                <input matInput autocomplete="off" formControlName="edad">
-                <small *ngIf="alumnosFormulario.get('edad')?.errors?.['required'] && alumnosFormulario.get('edad')?.touched" class="text-danger">Este campo es requerido</small>
-                <small *ngIf="alumnosFormulario.controls['edad'].hasError('required') && alumnosFormulario.controls['edad'].touched"></small>
-            </mat-form-field>
-        </div>
-
-        <div class="mb-2">
-            <mat-form-field>
-                <mat-label>sexo</mat-label>
-                <input matInput autocomplete="off" formControlName="sexo">
-                <small *ngIf="alumnosFormulario.get('sexo')?.errors?.['required'] && alumnosFormulario.get('sexo')?.touched" class="text-danger">Este campo es requerido</small>
-                <small *ngIf="alumnosFormulario.controls['sexo'].hasError('required') && alumnosFormulario.controls['sexo'].touched"></small>
-            </mat-form-field>
-        </div>
-
-
-        <div class="mb-2">
-            <button type="submit" [disabled]="alumnosFormulario.invalid" mat-raised-button color="primary">Aceptar</button>
-        </div>
-    </form>
+    </div>
 </div>
