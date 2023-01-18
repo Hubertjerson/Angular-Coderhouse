@@ -36,10 +36,9 @@ export class FormComponent implements OnInit, OnDestroy {
   }
 
   guardarCurso() {
-    let idcurso:number = Math.max.apply(null, this.cursos.map(o => o.id));
 
     let course : Curso = {
-      id: idcurso+1,
+      id: Math.round(Math.random()*1000),
       name:this.cursosFormulario.value.name,
       teacher:this.cursosFormulario.value.teacher,
       code:this.cursosFormulario.value.code,
@@ -58,5 +57,14 @@ export class FormComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.cursoSubcription.unsubscribe();
+  }
+
+  /*FUNCION PARA EL TESTING*/
+  createProduct() {
+    if (this.cursosFormulario.valid) {
+      this.cursoService.agregarAlumno(this.cursosFormulario.value);
+    } else {
+      alert('El formulario es invalido');
+    }
   }
 }

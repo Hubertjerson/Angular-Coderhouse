@@ -1,14 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 
 import { ListaComponent } from './lista.component';
+import { AlumnosModule } from '../alumnos.module';
 
 describe('ListaComponent', () => {
   let component: ListaComponent;
   let fixture: ComponentFixture<ListaComponent>;
 
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListaComponent ]
+      imports:[
+        HttpClientTestingModule,
+        AlumnosModule,
+      ],
+      declarations: [ ListaComponent ],
     })
     .compileComponents();
 
@@ -20,4 +27,5 @@ describe('ListaComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });
