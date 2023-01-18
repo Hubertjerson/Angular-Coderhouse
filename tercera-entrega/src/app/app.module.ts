@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { SharedComponentsModule } from './auth/shared/components/shared-components.module';
+import { StoreModule } from '@ngrx/store';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { SharedComponentsModule } from './auth/shared/components/shared-componen
     BrowserAnimationsModule,
     RouterModule,
     SharedComponentsModule,
-    HttpClientModule
+
+    HttpClientModule,
+    StoreModule.forRoot({}, {})
   ],
   providers: [],
   bootstrap: [AppComponent]
