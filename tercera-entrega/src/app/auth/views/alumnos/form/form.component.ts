@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { FormControl, FormGroup } from '@angular/forms';
 import { StudentService } from 'src/app/auth/shared/services/student.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-form',
@@ -45,5 +46,16 @@ export class FormComponent implements OnInit {
       sexo:this.alumnosFormulario.value.sexo,
     }
     this.alumnoService.agregarAlumno(student).subscribe(()=>this.router.navigate(['/alumnos/lista']));
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Se Agrego un nuevo Alumno',
+      showConfirmButton: false,
+      timer: 1500,
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.alumnoSubcription.unsubscribe();
   }
 }
