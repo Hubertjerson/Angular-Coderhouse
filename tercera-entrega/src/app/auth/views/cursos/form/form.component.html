@@ -1,0 +1,47 @@
+<div class="container">
+    <form class="form" [formGroup]="cursosFormulario" (ngSubmit)="guardarCurso()">
+
+        <div>
+            <mat-form-field>
+                <mat-label>Curso</mat-label>
+                <input matInput autocomplete="off" formControlName="name">
+            </mat-form-field>
+        </div>
+
+        <div class="mb-2">
+            <mat-form-field>
+                <mat-label>Profesor</mat-label>
+                <input matInput autocomplete="off" formControlName="teacher">
+            </mat-form-field>
+        </div>
+
+        <div class="mb-2">
+            <mat-form-field>
+                <mat-label>Codigo</mat-label>
+                <input matInput autocomplete="off" formControlName="code">
+            </mat-form-field>
+        </div>
+
+
+        <div class="mb-2">
+            <mat-form-field>
+                <mat-label>Fin de Cursada</mat-label>
+                <input matInput [matDatepicker]="finish" formControlName="finish">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="finish"></mat-datepicker-toggle>
+                <mat-datepicker #finish></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <div class="mb-2">
+            <mat-form-field>
+                <mat-label>Imagen(URL)</mat-label>
+                <input matInput autocomplete="off" formControlName="img">
+            </mat-form-field>
+        </div>
+
+        <div class="mb-2">
+            <button type="submit" [disabled]="cursosFormulario.invalid" mat-raised-button color="primary">Aceptar</button>
+        </div>
+    </form>
+</div>

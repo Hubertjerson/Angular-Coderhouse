@@ -4,6 +4,5 @@ export interface Curso{
     teacher:string,
     code:number,
     initiation:Date,
-    finish:Date,
     img:string
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Student } from 'src/app/auth/shared/models/Student.model';
 import { Subscription } from 'rxjs';
 import { FormControl, FormGroup } from '@angular/forms';
@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit {
+export class FormComponent implements OnInit, OnDestroy {
 
   alumnos: Student[];
   alumnoSubcription: Subscription;
