@@ -1,4 +1,10 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { User } from '../../models/user.model';
+import { AuthService } from '../../services/auth.service';
+import { AppState } from '../../store/app.reducer';
+import { authenticatedUserSelector } from '../../store/auth/auth.selectors';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +13,13 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderComponent {
   @Output() toggleSidebarForMe: EventEmitter<any> = new EventEmitter();
-  constructor(){}
+  public user: Observable<User | null>;
+  constructor(
+    public readonly authService: AuthService,
+    private readonly store: Store<AppState>
+  ){
+    this.user = this.store.select(authenticatedUserSelector)
+  }
   toggleSidebar() {
     this.toggleSidebarForMe.emit();
   }
