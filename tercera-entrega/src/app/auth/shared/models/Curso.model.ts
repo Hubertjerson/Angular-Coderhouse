@@ -6,9 +6,3 @@ export interface Curso{
     initiation:Date,
     img:string
 }
-
-export interface MockCurso{
-    id:number,
-    name:string,
-    teacher:string,
-}
