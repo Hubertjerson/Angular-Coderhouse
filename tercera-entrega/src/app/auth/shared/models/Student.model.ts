@@ -6,3 +6,9 @@ export interface Student{
     edad:number,
     sexo:string,
 }
+
+export interface fake{
+    id:number,
+    nombre:string,
+    apellido:string,
+}
