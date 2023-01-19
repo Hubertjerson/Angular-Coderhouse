@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CursosService } from 'src/app/auth/shared/services/cursos.service';
 
 
-describe('FormComponent', () => {
+describe('Testing de formulario de Cursos', () => {
   let component: FormComponent;
   let fixture: ComponentFixture<FormComponent>;
   let cursoService: CursosService;
@@ -35,7 +35,7 @@ describe('FormComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Creando Componente', () => {
     expect(component).toBeTruthy();
   });
 

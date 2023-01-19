@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Student } from 'src/app/auth/shared/models/Student.model';
 import { Subscription } from 'rxjs';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { StudentService } from 'src/app/auth/shared/services/student.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -26,11 +26,11 @@ export class FormComponent implements OnInit, OnDestroy {
       this.alumnoSubcription = this.alumnoService.ObtenerAlumnos().subscribe((alumno) => this.alumnos = alumno)
 
       this.alumnosFormulario = new FormGroup({
-        name: new FormControl,
-        LastName:new FormControl,
-        email:new FormControl,
-        edad:new FormControl,
-        sexo:new FormControl,
+        name: new FormControl('', [Validators.required]),
+        LastName:new FormControl('', [Validators.required]),
+        email:new FormControl('', [Validators.required]),
+        edad:new FormControl('', [Validators.required]),
+        sexo:new FormControl('', [Validators.required]),
       })
   }
 
@@ -58,4 +58,13 @@ export class FormComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.alumnoSubcription.unsubscribe();
   }
+
+    /*FUNCION PARA EL TESTING*/
+    createProduct() {
+      if (this.alumnosFormulario.valid) {
+        this.alumnoService.agregarAlumno(this.alumnosFormulario.value);
+      } else {
+        alert('El formulario es invalido');
+      }
+    }
 }
