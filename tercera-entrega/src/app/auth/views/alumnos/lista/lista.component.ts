@@ -40,6 +40,10 @@ export class ListaComponent implements OnInit, OnDestroy {
       this.alumnosSubcription.unsubscribe()
   }
 
+  editarAlumno(alumno: Student){
+    this.router.navigate(['/alumnos/edit', alumno])
+   }
+
   applyFilter(event: Event) {
     const valorObtenido = (event.target as HTMLInputElement).value;
     this.alumnos$ = this.alumnoService.ObtenerAlumnos().pipe(

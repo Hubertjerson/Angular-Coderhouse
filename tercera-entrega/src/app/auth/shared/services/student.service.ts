@@ -25,8 +25,8 @@ export class StudentService {
   eliminarAlumno(alumno:Student):Observable<Student>{
     return this.http.delete<Student>(`${this.apiURL}/Alumnos/${alumno.id}`);
   }
-  editarAlumno(alumno : Student){
-    this.http.put<Student>(`${this.apiURL}/Alumnos/${alumno.id}`, alumno)
+  editarAlumno(alumno : Student):Observable<Student>{
+    return this.http.put<Student>(`${this.apiURL}/Alumnos/${alumno.id}`, alumno)
   }
 
   getAlumnos(){

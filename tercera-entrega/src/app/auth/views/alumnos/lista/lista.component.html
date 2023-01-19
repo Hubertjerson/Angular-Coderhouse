@@ -44,8 +44,11 @@
                             </ng-container>
 
                             <ng-container matColumnDef="eliminar">
-                                <th mat-header-cell *matHeaderCellDef>borrar</th>
+                                <th mat-header-cell *matHeaderCellDef></th>
                                 <td mat-cell *matCellDef="let student">
+                                    <button mat-icon-button (click)="editarAlumno(student)">
+                                        <mat-icon color="accent">edit</mat-icon> 
+                                    </button>
                                     <button mat-icon-button (click)="eliminarAlumno(student)">
                                         <mat-icon color="primary">delete</mat-icon>
                                     </button>

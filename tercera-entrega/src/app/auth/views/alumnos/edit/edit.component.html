@@ -1,0 +1,55 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Agregar Alumno</div>
+    <div class="page__content shadow p-3 position-relative">
+        <div class="page__content-data position-absolute text-center">
+            <!--CONTENIDO-->
+            <div class="container">
+                <div class="container">
+                    <form class="form" [formGroup]="formularioEditable" (ngSubmit)="editarAlumno()">
+
+                        <div>
+                            <mat-form-field>
+                                <mat-label>Nombe</mat-label>
+                                <input matInput autocomplete="off" formControlName="name">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="mb-2">
+                            <mat-form-field>
+                                <mat-label>Apellido</mat-label>
+                                <input matInput autocomplete="off" formControlName="LastName">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="mb-2">
+                            <mat-form-field>
+                                <mat-label>email</mat-label>
+                                <input matInput autocomplete="off" formControlName="email">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="mb-2">
+                            <mat-form-field>
+                                <mat-label>edad</mat-label>
+                                <input matInput autocomplete="off" formControlName="edad">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="mb-2">
+                            <mat-form-field>
+                                <mat-label>sexo</mat-label>
+                                <input matInput autocomplete="off" formControlName="sexo">
+                            </mat-form-field>
+                        </div>
+
+
+                        <div class="mb-2">
+                            <button type="submit" mat-raised-button
+                                color="primary">Aceptar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

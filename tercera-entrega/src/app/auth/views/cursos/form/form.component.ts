@@ -30,7 +30,7 @@ export class FormComponent implements OnInit, OnDestroy {
       name: new FormControl('', [Validators.required]),
       teacher: new FormControl('', [Validators.required]),
       code: new FormControl('', [Validators.required]),
-      initiation: new FormControl('', [Validators.required]),
+      initiation: new FormControl,
       img: new FormControl('', [Validators.required]),
     })
   }
