@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Curso } from 'src/app/auth/shared/models/Curso.model';
 import { Subscription } from 'rxjs';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CursosService } from 'src/app/auth/shared/services/cursos.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -26,12 +26,12 @@ export class FormComponent implements OnInit, OnDestroy {
     this.cursoSubcription = this.cursoService.ObtenerCursos().subscribe((curso) => this.cursos = curso)
 
     this.cursosFormulario = new FormGroup({
-      id: new FormControl,
-      name: new FormControl,
-      teacher: new FormControl,
-      code: new FormControl,
-      initiation: new FormControl,
-      img: new FormControl,
+      id: new FormControl('', [Validators.required]),
+      name: new FormControl('', [Validators.required]),
+      teacher: new FormControl('', [Validators.required]),
+      code: new FormControl('', [Validators.required]),
+      initiation: new FormControl('', [Validators.required]),
+      img: new FormControl('', [Validators.required]),
     })
   }
 
